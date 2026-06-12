@@ -21,7 +21,7 @@ function App() {
       <header className="topbar" aria-label="Primary">
         <a
           className="brand"
-          href="#home"
+          href="#"
           aria-label="Computer Science Association CET home"
         >
           <LogoMark />
