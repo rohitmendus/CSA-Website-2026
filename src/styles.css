@@ -813,9 +813,13 @@ a {
 }
 
 @media (max-width: 780px) {
+  :root {
+    --mobile-gutter: clamp(1.15rem, 4vw, 1.5rem);
+  }
+
   .topbar {
     grid-template-columns: 2rem 1fr 2rem;
-    padding: 1rem 1rem 0;
+    padding: 1rem var(--mobile-gutter) 0;
   }
 
   .nav-pills {
@@ -828,12 +832,22 @@ a {
   }
 
   .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
     min-height: auto;
-    padding: 2rem 1rem 3rem;
+    padding: 2rem var(--mobile-gutter) 3rem;
+  }
+
+  .hero-copy {
+    width: min(100%, 34rem);
+    padding-top: 1.25rem;
   }
 
   .hero-copy h1 {
     font-size: clamp(3.1rem, 16vw, 4.6rem);
+    
   }
 
   .hero-copy p {
@@ -841,7 +855,7 @@ a {
   }
 
   .art-card {
-    width: min(100%, 32rem);
+    width: min(calc(100vw - (2 * var(--mobile-gutter))), 30rem);
     aspect-ratio: 1.05;
     transform: none;
   }
