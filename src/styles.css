@@ -15,6 +15,18 @@
   --gold: #ffc77f;
 }
 
+@font-face {
+  font-family: 'Milker';
+  src: url('./assets/fonts/Milker.otf');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.milker-font {
+  font-family: "Milker", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -221,15 +233,16 @@ a {
 }
 
 .hero-copy h1 {
-  margin: 0;
+  margin: 0 auto;
   color: #fffdfd;
-  font-family: "League Spartan", sans-serif;
+  font-family: "Milker", "League Spartan", sans-serif;
   font-size: clamp(4rem, 7.9vw, 6.95rem);
   font-weight: 900;
   line-height: 0.89;
   letter-spacing: -0.06em;
   text-transform: uppercase;
   text-wrap: balance;
+  text-align: center;
 }
 
 .hero-copy p {
@@ -389,11 +402,15 @@ a {
   .hero-copy {
     width: min(100%, 34rem);
     padding-top: 1.25rem;
+    text-align: center;
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.1rem, 16vw, 4.6rem);
+    font-size: clamp(1.8rem, 9vw, 3.5rem);
     text-align: center;
+    width: 100%;
+    margin-inline: auto;
+    letter-spacing: -0.02em;
   }
 
   .hero-copy p {
