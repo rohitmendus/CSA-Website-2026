@@ -2,9 +2,8 @@ import React, { useState } from "react";
 
 import TargetIcon from "./components/TargetIcon";
 import HeroArtwork from "./components/HeroArtwork";
-import csaLogo from './assets/csa_logo.svg';
+import csaLogo from "./assets/csa_logo.svg";
 import "./styles.css";
-
 
 const navItems = [
   "About",
@@ -37,10 +36,7 @@ function App() {
       />
 
       <header className="topbar" aria-label="Primary">
-
-       
         <a
-          
           className="brand"
           href="#"
           aria-label="Computer Science Association CET home"
