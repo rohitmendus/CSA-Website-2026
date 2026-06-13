@@ -28,6 +28,12 @@ function App() {
       <div className="ambient ambient-a" />
       <div className="ambient ambient-b" />
 
+      <div
+        className={`menu-overlay ${isMenuOpen ? "is-visible" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
       <header className="topbar" aria-label="Primary">
         <a
           className="brand"
