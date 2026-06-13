@@ -197,6 +197,16 @@ a {
   z-index: 1;
 }
 
+.brand-logo {
+  height: 3.8rem;
+  width: auto;
+  display: block;
+}
+
+.nav-menu-footer {
+  display: none;
+}
+
 .brand-mark,
 .target-icon {
   width: 2.8rem;
@@ -460,6 +470,24 @@ a {
 }
 
 @media (max-width: 850px) {
+  .brand-logo {
+    height: 3.2rem;
+  }
+
+  .nav-menu-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    padding: 3rem 0 1rem;
+    opacity: 0.6;
+  }
+
+  .nav-footer-logo {
+    height: 5rem;
+    width: auto;
+  }
+
   .menu-overlay {
     display: block;
     position: fixed;

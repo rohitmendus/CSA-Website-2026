@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import TargetIcon from "./components/TargetIcon";
 import HeroArtwork from "./components/HeroArtwork";
-import csaLogo from './assets/csa_logo.svg'
+import csaLogo from './assets/csa_logo.svg';
 import "./styles.css";
 
 
@@ -37,14 +37,16 @@ function App() {
       />
 
       <header className="topbar" aria-label="Primary">
-        <img
-          src={csaLogo}
+
+       
+        <a
+          
           className="brand"
           href="#"
           aria-label="Computer Science Association CET home"
-        />
-          
-        
+        >
+          <img src={csaLogo} alt="CSA Logo" className="brand-logo" />
+        </a>
 
         <nav
           className={`nav-pills ${isMenuOpen ? "is-open" : ""}`}
@@ -60,6 +62,9 @@ function App() {
               {item}
             </a>
           ))}
+          <div className="nav-menu-footer">
+            <img src={csaLogo} alt="CSA Logo" className="nav-footer-logo" />
+          </div>
         </nav>
 
         <div className="topbar-actions">
