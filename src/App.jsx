@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LogoMark from "./components/LogoMark";
 import TargetIcon from "./components/TargetIcon";
 import HeroArtwork from "./components/HeroArtwork";
@@ -13,6 +13,16 @@ const navItems = [
 ];
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <main className="page-shell">
       <div className="ambient ambient-a" />
@@ -27,21 +37,42 @@ function App() {
           <LogoMark />
         </a>
 
-        <nav className="nav-pills" aria-label="Section navigation">
+        <nav
+          className={`nav-pills ${isMenuOpen ? "is-open" : ""}`}
+          aria-label="Section navigation"
+        >
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="nav-pill">
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="nav-pill"
+              onClick={closeMenu}
+            >
               {item}
             </a>
           ))}
         </nav>
 
-        <a
-          className="target-link"
-          href="#resources"
-          aria-label="Jump to resources"
-        >
-          <TargetIcon />
-        </a>
+        <div className="topbar-actions">
+          <a
+            className="target-link"
+            href="#resources"
+            aria-label="Jump to resources"
+          >
+            <TargetIcon />
+          </a>
+
+          <button
+            className={`menu-toggle ${isMenuOpen ? "is-active" : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
       </header>
 
       <section id="home" className="hero">

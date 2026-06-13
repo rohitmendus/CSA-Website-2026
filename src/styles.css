@@ -104,15 +104,89 @@ a {
 
 .topbar {
   position: relative;
-  z-index: 2;
+  z-index: 100;
   display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 1.5rem;
   padding: 1.4rem 2.2rem 0;
 }
 
-.brand,
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 101;
+}
+
+.hamburger-box {
+  width: 1.6rem;
+  height: 1.2rem;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 1.6rem;
+  height: 2px;
+  background-color: var(--text);
+  position: absolute;
+  transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease;
+  border-radius: 4px;
+}
+
+.hamburger-inner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-inner::before {
+  content: "";
+  top: -0.5rem;
+  left: 0;
+}
+
+.hamburger-inner::after {
+  content: "";
+  top: 0.5rem;
+  left: 0;
+}
+
+.menu-toggle.is-active .hamburger-inner {
+  background-color: transparent;
+}
+
+.menu-toggle.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger-inner::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.brand {
+  position: relative;
+  z-index: 101;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+
 .target-link {
   display: inline-flex;
   align-items: center;
@@ -131,6 +205,9 @@ a {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-pill {
@@ -375,6 +452,48 @@ a {
   }
 }
 
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-pills {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(75, 59, 66, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
+  .nav-pills.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  .nav-pill {
+    width: 80%;
+    max-width: 20rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-color: rgba(248, 246, 244, 0.15);
+  }
+}
+
 @media (max-width: 780px) {
   .home-h1 {
     text-align: center;
@@ -385,17 +504,8 @@ a {
   }
 
   .topbar {
-    grid-template-columns: 2rem 1fr 2rem;
+    grid-template-columns: auto 1fr auto;
     padding: 1rem var(--mobile-gutter) 0;
-  }
-
-  .nav-pills {
-    gap: 0.7rem;
-  }
-
-  .nav-pill {
-    padding-inline: 0.95rem;
-    font-size: 0.9rem;
   }
 
   .hero {
