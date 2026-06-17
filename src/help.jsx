@@ -1,3 +1,6 @@
+import React from "react";
+import "./help.css";
+
 const contacts = [
     {
         id : 1,
@@ -28,16 +31,16 @@ const contacts = [
 function Help(){
     return (
         <main className ="help-page">
-        <h1>Help</h1>
-        <p>Questions, concerns or suggestions? Get in touch with us</p>
+        <h1 className="help-heading">Help</h1>
+        <p className="description">Questions, concerns or suggestions? Get in touch with us</p>
         <div className = "contact-flex">
             {
                 contacts.map((contact) => (
                     <div key={contact.id} className="contact">
-                        <p>{contact.name}</p>
-                        <p>{contact.role}</p>
-                        <p>{contact.phoneNo}</p>
-                        <a href={`mailto:${contact.mail}`}>{contact.mail}</a>
+                        <p className="contact-name">{contact.name}</p>
+                        <p className="contact-role">{contact.role}</p>
+                        <p  className="contact-phone">{contact.phoneNo}</p>
+                        <a href={`mailto:${contact.mail}`} className="contact-mail">{contact.mail}</a>
                     </div>
     ))}
         </div>
