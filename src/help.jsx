@@ -1,5 +1,6 @@
 import React from "react";
 import "./help.css";
+import Navbar from "./components/home/Navbar/Navbar";
 
 const contacts = [
     {
@@ -31,6 +32,7 @@ const contacts = [
 function Help(){
     return (
         <main className ="help-page">
+        <Navbar />
         <h1 className="help-heading">Help</h1>
         <p className="description">Questions, concerns or suggestions? Get in touch with us</p>
         <div className = "contact-flex">
