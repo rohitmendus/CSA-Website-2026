@@ -1,6 +1,5 @@
 import React from "react";
 import "./help.css";
-import Navbar from "../home/Navbar/Navbar.jsx";
 
 const contacts = [
     {
@@ -32,7 +31,6 @@ const contacts = [
 function Help(){
     return (
         <main className ="help-page">
-        <Navbar />
         <div className="title-section">
         <div className="border-frame">
             <div className="top" />
