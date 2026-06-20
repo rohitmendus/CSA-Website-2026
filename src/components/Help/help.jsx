@@ -33,13 +33,17 @@ function Help(){
     return (
         <main className ="help-page">
         <Navbar />
-        <div className="help-heading-wrapper">
-        <span className="help-line-v left" />
-        <span className="help-line-v right" />
-        <span className="help-line-h top" />
-        <span className="help-line-h bottom" />
-        <h1 className="help-heading">Help</h1>
-      </div>
+        <div className="title-section">
+        <div className="border-frame">
+            <div className="top" />
+            <div className="bottom" />
+        </div>
+        <div className="title-frame">
+            <span className="line left" />                                                                              
+            <h1 className="title">Help</h1>
+            <span className="line right" />
+        </div>
+        </div>
         <p className="description">Questions, concerns or suggestions? Get in touch with us</p>
         <div className = "contact-flex">
             {
